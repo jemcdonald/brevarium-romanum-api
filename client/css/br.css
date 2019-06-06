@@ -1,0 +1,34 @@
+body {
+  background: #333;
+  color: #efefef;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px; }
+
+#app {
+  max-width: 700px;
+  margin: 0 auto; }
+
+h2, h3 {
+  color: lightcoral; }
+
+p {
+  font-size: 1rem; }
+
+.first-hilite::first-letter {
+  color: lightcoral;
+  font-size: 1.25rem; }
+
+.versicle::before {
+  content: "V: ";
+  color: lightcoral;
+  font-size: 1.25rem;
+  font-style: italic; }
+
+.response::before {
+  content: "R: ";
+  color: lightcoral;
+  font-size: 1.25rem;
+  font-style: italic; }
+
+.psalm-verse em, .canticle-verse em {
+  color: lightcoral; }

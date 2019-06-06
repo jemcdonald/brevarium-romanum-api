@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>1954 Brevarium Romanum API</title>
+    <link rel="stylesheet" href="css/br.css">
+</head>
+
+<body>
+
+    <div id="app">
+
+        <h1>1954 API: Sunday Lauds</h1>
+
+        <div v-if="info.data.incipit">
+            <h2>Incipit</h2>
+            <p class="first-hilite">{{info.data.incipit.paternoster}}</p>
+            <p class="first-hilite">{{info.data.incipit.avemaria}}</p>
+            <div>
+                <div class="versicle">{{info.data.incipit.deusAdjutorium.versicle}}</div>
+                <div class="response">{{info.data.incipit.deusAdjutorium.response}}</div>
+                <div class="versicle">{{info.data.incipit.gloriaPatri.versicle}}</div>
+                <div class="response">{{info.data.incipit.gloriaPatri.response}}</div>
+            </div>
+            <p v-if="info.data.incipit.alleluia" class="first-hilite">{{info.data.incipit.alleluia}}</p>
+            <div v-if="info.data.hymn">
+                {{info.data.hymn}}
+            </div>
+        </div>
+
+        <div v-if="info.data.psalterium">
+            <h2>Psalmi</h2>
+            <div v-for="psalm in info.data.psalterium">
+                <h3>Psalmus {{psalm.chapter}}</h3>
+                <div v-for="verse in psalm.verses">
+                    <div class="psalm-verse">
+                        <em>{{verse.id}}</em>
+                        {{verse.la}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="info.data.canticle">
+            <h2>{{info.data.canticle.desc}}</h2>
+            <h3>{{info.data.canticle.chapter}}</h3>
+            <p v-if="info.data.canticle.antiphon">
+                Ant: {{info.data.canticle.antiphon}}
+            </p>
+            <div v-for="verse in info.data.canticle.verses">
+                <div class="canticle-verse">
+                    <em>{{verse.id}}</em>
+                    {{verse.la}}
+                </div>
+            </div>
+        </div>
+
+        <div v-if="info.data.chapterResponsory[0]">
+            <h2>Capitulum Hymnus Versus</h2>
+            <p>{{info.data.chapterResponsory}}</p>
+        </div>
+        <div v-else>
+            <h2>Capitulum Hymnus Versus (omittitur)</h2>
+        </div>
+
+        <div v-if="info.data.precesFeriales[0]">
+            <h2>Preces Feriales</h2>
+            <p>{{info.data.precesFeriales}}</p>
+        </div>
+        <div v-else>
+            <h2>Preces Feriales (omittitur)</h2>
+        </div>
+
+        <div v-if="info.data.oratio.commemoratio[0]">
+            <h2>Commemoratio</h2>
+            <p>{{info.data.oratio.commemoratio}}</p>
+        </div>
+        <div v-else>
+            <h2>Commemoratio (omittitur)</h2>
+        </div>
+
+        <div v-if="info.data.conclusio">
+            <h2>Conclusio</h2>
+            <div>
+                <div class="versicle">{{info.data.conclusio.domineExaudi.versicle}}</div>
+                <div class="response">{{info.data.conclusio.domineExaudi.response}}</div>
+                <div class="versicle">{{info.data.conclusio.benedicamus.versicle}}</div>
+                <div class="response">{{info.data.conclusio.benedicamus.response}}</div>
+                <div class="versicle">{{info.data.conclusio.fideliumAnime.versicle}}</div>
+                <div class="response">{{info.data.conclusio.fideliumAnime.response}}</div>
+            </div>
+            <p class="first-hilite">{{info.data.conclusio.paternoster}}</p>
+        </div>
+
+    </div>
+</body>
+
+<script src="js/vue.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/br.js"></script>
+
+</html>

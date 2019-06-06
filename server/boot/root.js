@@ -3,6 +3,7 @@
 // This file is licensed under the MIT License.
 // License text available at https://opensource.org/licenses/MIT
 
+/*
 'use strict';
 
 module.exports = function(server) {
@@ -11,3 +12,4 @@ module.exports = function(server) {
   router.get('/', server.loopback.status());
   server.use(router);
 };
+*/

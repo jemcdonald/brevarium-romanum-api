@@ -1,0 +1,49 @@
+$dark-grey: #333;
+$light-grey: #efefef;
+$highlight: lightcoral;
+
+@mixin vers-resp-before {
+    color: $highlight;
+    font: {
+        size: 1.25rem;
+        style: italic;
+    }
+}
+
+body {
+    background: $dark-grey;
+    color: $light-grey;
+    font: {
+        family: Helvetica, Arial, sans-serif;
+        size: 16px;
+    }
+}
+
+#app {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h2, h3 {
+    color: $highlight;
+}
+p {
+    font-size: 1rem;
+}    
+
+.first-hilite::first-letter {
+    color: $highlight;
+    font-size: 1.25rem;
+}
+
+.versicle::before {
+    content: "V: ";
+    @include vers-resp-before;
+}
+.response::before {
+    content: "R: ";
+    @include vers-resp-before;
+}
+.psalm-verse em, .canticle-verse em {
+    color: $highlight;
+}
